@@ -1,13 +1,64 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow} = require('electron')
+const {autoUpdater} = require('electron-updater');
+const isDev = require('electron-is-dev');
+const path = require('path');
 
+
+// Setup logger
+autoUpdater.logger = require('electron-log');
+autoUpdater.logger.transports.file.level = 'info';
+
+// Setup updater events
+autoUpdater.on('checking-for-update', () => {
+  console.log('Checking for updates...');
+});
+
+autoUpdater.on('update-available', (info) => {
+  console.log('Update available');
+  console.log('Version',info.version);
+  console.log('Release Date', info.releaseDate);
+
+});
+
+autoUpdater.on('update-not-available', (progress) => {
+  console.log('Progress ${Matt.floor(progress.percent)}');
+});
+
+autoUpdater.on('update-downloaded', (info) => {
+  console.log('Update downloaded');
+  autoUpdater.quitAndInstall();
+});
+
+autoUpdater.on('error', (error) => {
+  console.error(error);
+});
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
 function createWindow () {
+  import * as Splashscreen from "@trodi/electron-splashscreen";
+const mainOpts: Electron.BrowserWindowConstructorOptions = ...
+// configure the splashscreen
+const config: Splashscreen.Config = {
+    windowOpts: mainOpts;
+    templateUrl: `${__dirname}/splash-screen.html`;
+    splashScreenOpts: {
+        width: 425,
+        height: 325,
+    },
+};
+// initialize the splashscreen handling
+const main: BrowserWindow = Splashscreen.initSplashScreen(config);
+// load your browser window per usual
+main.loadURL(`file://index.html`);
+
+  if(!isDev) {
+    autoUpdater.checkForUpdatesAndNotify();
+  }
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600})
+  mainWindow = new BrowserWindow({width: 800, height: 600, frame:false})
 
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
@@ -41,6 +92,7 @@ app.on('window-all-closed', function () {
 app.on('activate', function () {
   // On OS X it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
+
   if (mainWindow === null) {
     createWindow()
   }

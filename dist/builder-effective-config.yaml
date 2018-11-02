@@ -1,0 +1,15 @@
+directories:
+  output: dist
+  buildResources: build
+appId: com.testingelectron.app
+productName: Coffee Cup
+mac:
+  target:
+    - dmg
+    - zip
+  icon: build/coffee.icns
+publish:
+  provider: github
+  owner: johnjeren
+  private: false
+electronVersion: 3.0.7
