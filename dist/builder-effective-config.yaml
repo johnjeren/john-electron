@@ -2,14 +2,17 @@ directories:
   output: dist
   buildResources: build
 appId: com.testingelectron.app
-productName: Coffee Cup
+productName: John's App
 mac:
   target:
     - dmg
     - zip
   icon: build/coffee.icns
+win:
+  icon: build/coffee.ico
+  target: nsis
 publish:
   provider: github
   owner: johnjeren
-  private: false
+  repo: john-electron
 electronVersion: 3.0.7

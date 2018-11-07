@@ -4,61 +4,47 @@ const {autoUpdater} = require('electron-updater');
 const isDev = require('electron-is-dev');
 const path = require('path');
 
-
+const sendStatusToWindow = (text) => {
+  if(mainWindow){
+    mainWindow.webContents.send('message',text);
+  }
+}
 // Setup logger
 autoUpdater.logger = require('electron-log');
 autoUpdater.logger.transports.file.level = 'info';
 
-// Setup updater events
 autoUpdater.on('checking-for-update', () => {
-  console.log('Checking for updates...');
-});
-
+  sendStatusToWindow('Checking for update...');
+})
 autoUpdater.on('update-available', (info) => {
-  console.log('Update available');
-  console.log('Version',info.version);
-  console.log('Release Date', info.releaseDate);
-
-});
-
-autoUpdater.on('update-not-available', (progress) => {
-  console.log('Progress ${Matt.floor(progress.percent)}');
-});
-
+  sendStatusToWindow('Update available.');
+})
+autoUpdater.on('update-not-available', (info) => {
+  sendStatusToWindow('Update not available.');
+})
+autoUpdater.on('error', (err) => {
+  sendStatusToWindow('Error in auto-updater. ' + err);
+})
+autoUpdater.on('download-progress', (progressObj) => {
+  let log_message = "Download speed: " + progressObj.bytesPerSecond;
+  log_message = log_message + ' - Downloaded ' + progressObj.percent + '%';
+  log_message = log_message + ' (' + progressObj.transferred + "/" + progressObj.total + ')';
+  sendStatusToWindow(log_message);
+})
 autoUpdater.on('update-downloaded', (info) => {
-  console.log('Update downloaded');
-  autoUpdater.quitAndInstall();
+  sendStatusToWindow('Update downloaded');
 });
 
-autoUpdater.on('error', (error) => {
-  console.error(error);
-});
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
 function createWindow () {
-  import * as Splashscreen from "@trodi/electron-splashscreen";
-const mainOpts: Electron.BrowserWindowConstructorOptions = ...
-// configure the splashscreen
-const config: Splashscreen.Config = {
-    windowOpts: mainOpts;
-    templateUrl: `${__dirname}/splash-screen.html`;
-    splashScreenOpts: {
-        width: 425,
-        height: 325,
-    },
-};
-// initialize the splashscreen handling
-const main: BrowserWindow = Splashscreen.initSplashScreen(config);
-// load your browser window per usual
-main.loadURL(`file://index.html`);
 
-  if(!isDev) {
-    autoUpdater.checkForUpdatesAndNotify();
-  }
+    autoUpdater.checkForUpdates();
+
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600, frame:false})
+  mainWindow = new BrowserWindow({width: 800, height: 600})
 
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')

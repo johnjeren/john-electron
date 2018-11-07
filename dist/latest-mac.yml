@@ -1,12 +1,12 @@
 version: 1.0.0
 files:
   - url: electron-test-1.0.0-mac.zip
-    sha512: 4eIJ/NWdqRuj3DlROyfVBzFQydZ880isBGRwoyrtAZ0opRuXTzhmSgv79dhx+7aUvibGFIkhtnlLTRrCDkmlAg==
-    size: 99817199
-    blockMapSize: 105510
+    sha512: dCugWfd2uZK0lOSJMCAtb64yXe4knXVaJd0MVbRluxm4rgaxYJ391IABddabA4x90jVlE6I8g37b3n2tBlx4XQ==
+    size: 99827027
+    blockMapSize: 105501
   - url: electron-test-1.0.0.dmg
-    sha512: vLsh7a0Q8MWvka2DpCUumK564hujiD9A4vqzOgo7Rk4ZJ+gZQ5596glhyF8dCXE0RqDGEwhsFOk3WecegQX/kA==
-    size: 102954711
+    sha512: 8A1SQ31HMsWLES1dPdQ5mqY2XYGmMyuzj2JYl1Vj2zRQW/zV5rcZoQOb1CjgF2y5C5aMwYwYKcMUtcim70wsNQ==
+    size: 102960947
 path: electron-test-1.0.0-mac.zip
-sha512: 4eIJ/NWdqRuj3DlROyfVBzFQydZ880isBGRwoyrtAZ0opRuXTzhmSgv79dhx+7aUvibGFIkhtnlLTRrCDkmlAg==
-releaseDate: '2018-11-02T17:46:30.966Z'
+sha512: dCugWfd2uZK0lOSJMCAtb64yXe4knXVaJd0MVbRluxm4rgaxYJ391IABddabA4x90jVlE6I8g37b3n2tBlx4XQ==
+releaseDate: '2018-11-06T17:10:25.250Z'

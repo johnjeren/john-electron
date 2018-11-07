@@ -45,6 +45,6 @@
     <key>NSHumanReadableCopyright</key>
     <string>Copyright © 2018 JohnJeren</string>
     <key>AsarIntegrity</key>
-    <string>{"checksums":{"app.asar":"PokntgRCbLIsGGhfqD+Oi6ljba1v2qZtttGwb2QwolRlAMwLB2HHt/Z1HvRj+/lGrnp1/lOu1skkBBOpwxzSLg==","electron.asar":"gVCLkwQJOdqmyiUuLU4+tNO4UT0UYu6ELtg1rbqCOxgPMMKW96ycjaPuD3yYLqIvvOog4v+8ov+nDsNIyAJToA=="}}</string>
+    <string>{"checksums":{"app.asar":"kbBOA2kSzMOPBCHxt3h+09Pc1IZ5vxr9epVHwcbsjVva2w5PS7Q8G2zjM5+3KThyJe6GNILDTjil46SR+mVtdA==","electron.asar":"gVCLkwQJOdqmyiUuLU4+tNO4UT0UYu6ELtg1rbqCOxgPMMKW96ycjaPuD3yYLqIvvOog4v+8ov+nDsNIyAJToA=="}}</string>
   </dict>
 </plist>

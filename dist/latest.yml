@@ -1,0 +1,8 @@
+version: 1.0.0
+files:
+  - url: electron-test-setup-1.0.0.exe
+    sha512: cuHA83U2AVc9TR6NBvsZ2kJK5p2qMC/+vT/dAR5UkVyMKBKSZRFHMUobL5zQ+vD1OEyVF/GunmRLqSzDaNjJHw==
+    size: 68751578
+path: electron-test-setup-1.0.0.exe
+sha512: cuHA83U2AVc9TR6NBvsZ2kJK5p2qMC/+vT/dAR5UkVyMKBKSZRFHMUobL5zQ+vD1OEyVF/GunmRLqSzDaNjJHw==
+releaseDate: '2018-11-07T18:58:06.244Z'
